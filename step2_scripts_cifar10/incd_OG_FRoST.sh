@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-python -W ignore incd_ablation_expt.py \
+python -W ignore class-iNCD/incd_ablation_expt.py \
         --dataset_root ./data/datasets/CIFAR/ \
         --exp_root ./data/experiments/ \
         --warmup_model_dir ./data/experiments/supervised_learning_wo_ssl/warmup_resnet_wo_ssl.pth \
