@@ -59,7 +59,7 @@ def train(model, train_loader, labeled_eval_loader, args, cntr_tracker=None, tra
         print('test on labeled classes')
         args.head = 'head1'
         _, acc_head1_lb_warmup = test(model, labeled_eval_loader, args)
-        wandb.log({"val_acc/head1_lb_warm": acc_head1_lb_warmup}, step=epoch)
+        # wandb.log({"val_acc/head1_lb_warm": acc_head1_lb_warmup}, step=epoch)
         # if cntr_tracker:
         #     if epoch % track_interval-1 == 0:
         #         cntr_tracker.generate(epoch)
@@ -127,11 +127,11 @@ if __name__ == "__main__":
 
     # WandB setting
     # use wandb logging
-    wandb_run_name = args.model_name + args.dataset_name
-    wandb.init(project='incd_dev_miu',
-               entity=args.wandb_entity,
-               name=wandb_run_name,
-               mode=args.wandb_mode)
+    # wandb_run_name = args.model_name + args.dataset_name
+    # wandb.init(project='incd_dev_miu',
+    #            entity=args.wandb_entity,
+    #            name=wandb_run_name,
+    #            mode=args.wandb_mode)
 
     model = ResNet(BasicBlock, [2, 2, 2, 2], args.num_labeled_classes, args.num_unlabeled_classes).to(device)
 
