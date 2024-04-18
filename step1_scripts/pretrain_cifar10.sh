@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-python -W ignore supervised_learning_wo_ssl.py \
+python -W ignore class-iNCD/supervised_learning_wo_ssl.py \
         --dataset_name cifar10 \
         --epochs 200 \
         --batch_size 128 \
