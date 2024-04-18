@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-python -W ignore incd_ablation_expt.py \
+python -W ignore class-iNCD/incd_ablation_expt.py \
         --dataset_root ./data/datasets/CIFAR/ \
         --exp_root ./data/experiments/ \
         --warmup_model_dir ./data/experiments/supervised_learning_wo_ssl/warmup_cifar100_resnet_wo_ssl.pth \
@@ -9,7 +9,7 @@ python -W ignore incd_ablation_expt.py \
         --weight_decay 1e-4 \
         --step_size 170 \
         --batch_size 128 \
-        --epochs 200 \
+        --epochs 2 \
         --rampup_length 150 \
         --rampup_coefficient 50 \
         --num_unlabeled_classes 20 \
