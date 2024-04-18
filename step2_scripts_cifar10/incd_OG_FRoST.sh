@@ -9,7 +9,7 @@ python -W ignore incd_ablation_expt.py \
         --weight_decay 1e-4 \
         --step_size 170 \
         --batch_size 128 \
-        --epochs 300 \
+        --epochs 10 \
         --rampup_length 50 \
         --rampup_coefficient 5.0 \
         --dataset_name cifar10 \
@@ -23,3 +23,5 @@ python -W ignore incd_ablation_expt.py \
         --lambda_proto 1 \
         --wandb_mode online \
         --wandb_entity oatmealliu
+
+# 300
