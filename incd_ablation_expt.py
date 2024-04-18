@@ -106,10 +106,10 @@ def train_AutoNovel(model, old_model, train_loader, labeled_eval_loader, unlabel
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   }, step=epoch)
+        # wandb.log({
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            }, step=epoch)
 
         print('Head2: test on unlabeled classes')
         args.head = 'head2'
@@ -129,17 +129,17 @@ def train_AutoNovel(model, old_model, train_loader, labeled_eval_loader, unlabel
         acc_head1_all_w_cluster = test(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/head2_ul": acc_head2_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul": acc_head1_ul,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/head2_ul": acc_head2_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul": acc_head1_ul,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
-        wandb.log({
-            "misc/w_ramp": w
-        }, step=epoch)
+        # wandb.log({
+        #     "misc/w_ramp": w
+        # }, step=epoch)
 
 
 def train_OGwoPseudo(model, old_model, train_loader, labeled_eval_loader, unlabeled_eval_loader, all_eval_loader,
@@ -256,12 +256,12 @@ def train_OGwoPseudo(model, old_model, train_loader, labeled_eval_loader, unlabe
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({#"loss/pseudo-unlab": loss_ce_add_record.avg,
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/proto_lab": loss_record.avg,
-                   "loss/kd": loss_kd_record.avg
-                   }, step=epoch)
+        # wandb.log({#"loss/pseudo-unlab": loss_ce_add_record.avg,
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/proto_lab": loss_record.avg,
+        #            "loss/kd": loss_kd_record.avg
+        #            }, step=epoch)
 
         print('Train Epoch: {} Avg Loss: {:.4f}'.format(epoch, loss_record.avg))
 
@@ -283,17 +283,17 @@ def train_OGwoPseudo(model, old_model, train_loader, labeled_eval_loader, unlabe
         acc_head1_all_w_cluster = test(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/head2_ul": acc_head2_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul": acc_head1_ul,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/head2_ul": acc_head2_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul": acc_head1_ul,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
-        wandb.log({
-            "misc/w_ramp": w
-        }, step=epoch)
+        # wandb.log({
+        #     "misc/w_ramp": w
+        # }, step=epoch)
 
 
 def train_LwF_Proto(model, old_model, train_loader, labeled_eval_loader, unlabeled_eval_loader, all_eval_loader,
@@ -427,12 +427,12 @@ def train_LwF_Proto(model, old_model, train_loader, labeled_eval_loader, unlabel
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/proto_lab": loss_record.avg,
-                   "loss/LwF_logits_kd": loss_kd_record.avg
-                   }, step=epoch)
+        # wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/proto_lab": loss_record.avg,
+        #            "loss/LwF_logits_kd": loss_kd_record.avg
+        #            }, step=epoch)
 
         print('Head2: test on unlabeled classes')
         args.head = 'head2'
@@ -452,17 +452,17 @@ def train_LwF_Proto(model, old_model, train_loader, labeled_eval_loader, unlabel
         acc_head1_all_w_cluster = test(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/head2_ul": acc_head2_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul": acc_head1_ul,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/head2_ul": acc_head2_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul": acc_head1_ul,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
-        wandb.log({
-            "misc/w_ramp": w
-        }, step=epoch)
+        # wandb.log({
+        #     "misc/w_ramp": w
+        # }, step=epoch)
 
 
 
@@ -578,11 +578,11 @@ def train_SplitHead12(model, old_model, train_loader, labeled_eval_loader, unlab
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({"loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/proto_lab": loss_record.avg,
-                   "loss/kd": loss_kd_record.avg
-                   }, step=epoch)
+        # wandb.log({"loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/proto_lab": loss_record.avg,
+        #            "loss/kd": loss_kd_record.avg
+        #            }, step=epoch)
 
         print('Train Epoch: {} Avg Loss: {:.4f}'.format(epoch, loss_record.avg))
 
@@ -604,17 +604,17 @@ def train_SplitHead12(model, old_model, train_loader, labeled_eval_loader, unlab
         acc_head1_all_w_cluster = test(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/head2_ul": acc_head2_ul,
-            "val_acc/Syn_head1_lb": acc_head1_lb,
-            "val_acc/Syn_head1_ul": acc_head1_ul,
-            "val_acc/Syn_head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/Syn_head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/head2_ul": acc_head2_ul,
+        #     "val_acc/Syn_head1_lb": acc_head1_lb,
+        #     "val_acc/Syn_head1_ul": acc_head1_ul,
+        #     "val_acc/Syn_head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/Syn_head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
-        wandb.log({
-            "misc/w_ramp": w
-        }, step=epoch)
+        # wandb.log({
+        #     "misc/w_ramp": w
+        # }, step=epoch)
 
 
 def train_JointHead1_woPseudo(model, old_model, train_loader, labeled_eval_loader, unlabeled_eval_loader, all_eval_loader,
@@ -733,12 +733,12 @@ def train_JointHead1_woPseudo(model, old_model, train_loader, labeled_eval_loade
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({#"loss/pseudo-unlab": loss_ce_add_record.avg,
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/proto_lab": loss_record.avg,
-                   "loss/kd": loss_kd_record.avg
-                   }, step=epoch)
+        # wandb.log({#"loss/pseudo-unlab": loss_ce_add_record.avg,
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/proto_lab": loss_record.avg,
+        #            "loss/kd": loss_kd_record.avg
+        #            }, step=epoch)
 
         print('Train Epoch: {} Avg Loss: {:.4f}'.format(epoch, loss_record.avg))
 
@@ -760,17 +760,17 @@ def train_JointHead1_woPseudo(model, old_model, train_loader, labeled_eval_loade
         acc_head1_all_w_cluster = test(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/fake_head2_ul_head1_last": acc_head2_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul": acc_head1_ul,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/fake_head2_ul_head1_last": acc_head2_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul": acc_head1_ul,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
-        wandb.log({
-            "misc/w_ramp": w
-        }, step=epoch)
+        # wandb.log({
+        #     "misc/w_ramp": w
+        # }, step=epoch)
 
         # END of the current epoch
 
@@ -896,12 +896,12 @@ def train_JointHead1(model, old_model, train_loader, labeled_eval_loader, unlabe
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/proto_lab": loss_record.avg,
-                   "loss/kd": loss_kd_record.avg
-                   }, step=epoch)
+        # wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/proto_lab": loss_record.avg,
+        #            "loss/kd": loss_kd_record.avg
+        #            }, step=epoch)
 
         print('Train Epoch: {} Avg Loss: {:.4f}'.format(epoch, loss_record.avg))
 
@@ -923,17 +923,17 @@ def train_JointHead1(model, old_model, train_loader, labeled_eval_loader, unlabe
         acc_head1_all_w_cluster = test(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/fake_head2_ul_head1_last": acc_head2_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul": acc_head1_ul,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/fake_head2_ul_head1_last": acc_head2_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul": acc_head1_ul,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
-        wandb.log({
-            "misc/w_ramp": w
-        }, step=epoch)
+        # wandb.log({
+        #     "misc/w_ramp": w
+        # }, step=epoch)
 
 def train_LwF(model, old_model, train_loader, labeled_eval_loader, unlabeled_eval_loader, all_eval_loader, args):
     print("="*100)
@@ -1053,11 +1053,11 @@ def train_LwF(model, old_model, train_loader, labeled_eval_loader, unlabeled_eva
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/LwF_logits_kd": loss_kd_record.avg
-                   }, step=epoch)
+        # wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/LwF_logits_kd": loss_kd_record.avg
+        #            }, step=epoch)
 
         print('Head2: test on unlabeled classes')
         args.head = 'head2'
@@ -1077,17 +1077,17 @@ def train_LwF(model, old_model, train_loader, labeled_eval_loader, unlabeled_eva
         acc_head1_all_w_cluster = test(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/head2_ul": acc_head2_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul": acc_head1_ul,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/head2_ul": acc_head2_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul": acc_head1_ul,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
-        wandb.log({
-            "misc/w_ramp": w
-        }, step=epoch)
+        # wandb.log({
+        #     "misc/w_ramp": w
+        # }, step=epoch)
 
 
 def train_IL_center(model, old_model, train_loader, labeled_eval_loader, unlabeled_eval_loader, all_eval_loader,
@@ -1208,12 +1208,12 @@ def train_IL_center(model, old_model, train_loader, labeled_eval_loader, unlabel
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/proto_lab": loss_record.avg,
-                   "loss/kd": loss_kd_record.avg
-                  }, step=epoch)
+        # wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/proto_lab": loss_record.avg,
+        #            "loss/kd": loss_kd_record.avg
+        #           }, step=epoch)
 
         print('Train Epoch: {} Avg Loss: {:.4f}'.format(epoch, loss_record.avg))
 
@@ -1235,17 +1235,17 @@ def train_IL_center(model, old_model, train_loader, labeled_eval_loader, unlabel
         acc_head1_all_w_cluster = test(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/head2_ul": acc_head2_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul": acc_head1_ul,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/head2_ul": acc_head2_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul": acc_head1_ul,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
-        wandb.log({
-            "misc/w_ramp": w
-        }, step=epoch)
+        # wandb.log({
+        #     "misc/w_ramp": w
+        # }, step=epoch)
 
 
 def Generate_Center(model, labeled_train_loader, args):
@@ -1474,12 +1474,12 @@ if __name__ == "__main__":
 
     # WandB setting
     # use wandb logging
-    if args.mode == 'train':
-        wandb_run_name = args.model_name + '_fixl1_s_' + str(args.seed)
-        wandb.init(project='incd_dev_miu',
-                   entity=args.wandb_entity,
-                   name=wandb_run_name,
-                   mode=args.wandb_mode)
+    # if args.mode == 'train':
+    #     wandb_run_name = args.model_name + '_fixl1_s_' + str(args.seed)
+    #     wandb.init(project='incd_dev_miu',
+    #                entity=args.wandb_entity,
+    #                name=wandb_run_name,
+    #                mode=args.wandb_mode)
 
     # Dataloader creation
     print("used batch size is {}".format(args.batch_size))
