@@ -9,7 +9,7 @@ python -W ignore class-iNCD/incd_ablation_expt.py \
         --weight_decay 1e-4 \
         --step_size 170 \
         --batch_size 128 \
-        --epochs 10 \
+        --epochs 3 \
         --rampup_length 50 \
         --rampup_coefficient 5.0 \
         --dataset_name cifar10 \
