@@ -134,12 +134,12 @@ def train_IL_center(model, old_model, train_loader, labeled_eval_loader, unlabel
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/proto_lab": loss_record.avg,
-                   "loss/kd": loss_kd_record.avg
-                   }, step=epoch)
+        # wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/proto_lab": loss_record.avg,
+        #            "loss/kd": loss_kd_record.avg
+        #            }, step=epoch)
 
         print('Train Epoch: {} Avg Loss: {:.4f}'.format(epoch, loss_record.avg))
 
@@ -161,13 +161,13 @@ def train_IL_center(model, old_model, train_loader, labeled_eval_loader, unlabel
         acc_head1_all_w_cluster = fair_test1(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/head2_ul": acc_head2_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul": acc_head1_ul,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/head2_ul": acc_head2_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul": acc_head1_ul,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clustering": acc_head1_all_w_cluster
+        # }, step=epoch)
 
 def train_IL_center_second(model, old_model, train_loader, labeled_eval_loader, unlabeled_eval_loader, all_eval_loader,
                            class_mean, class_sig, p_unlabeled_eval_loader, args):
@@ -282,12 +282,12 @@ def train_IL_center_second(model, old_model, train_loader, labeled_eval_loader, 
             optimizer.step()
 
         # wandb loss logging
-        wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
-                   "loss/bce": loss_bce_record.avg,
-                   "loss/consistency": consistency_loss_record.avg,
-                   "loss/proto_lab": loss_record.avg,
-                   "loss/kd": loss_kd_record.avg
-                   }, step=epoch)
+        # wandb.log({"loss/pseudo-unlab": loss_ce_add_record.avg,
+        #            "loss/bce": loss_bce_record.avg,
+        #            "loss/consistency": consistency_loss_record.avg,
+        #            "loss/proto_lab": loss_record.avg,
+        #            "loss/kd": loss_kd_record.avg
+        #            }, step=epoch)
 
         print('Train Epoch: {} Avg Loss: {:.4f}'.format(epoch, loss_record.avg))
 
@@ -320,15 +320,15 @@ def train_IL_center_second(model, old_model, train_loader, labeled_eval_loader, 
         acc_head1_all_w_cluster = fair_test2(model, all_eval_loader, args, cluster=True)
 
         # wandb metrics logging
-        wandb.log({
-            "val_acc/head2_ul": acc_head2_ul,
-            "val_acc/head3_ul": acc_head3_ul,
-            "val_acc/head1_lb": acc_head1_lb,
-            "val_acc/head1_ul_1": acc_head1_ul1,
-            "val_acc/head1_ul_2": acc_head1_ul2,
-            "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
-            "val_acc/head1_all_w_clutering": acc_head1_all_w_cluster,
-        }, step=epoch)
+        # wandb.log({
+        #     "val_acc/head2_ul": acc_head2_ul,
+        #     "val_acc/head3_ul": acc_head3_ul,
+        #     "val_acc/head1_lb": acc_head1_lb,
+        #     "val_acc/head1_ul_1": acc_head1_ul1,
+        #     "val_acc/head1_ul_2": acc_head1_ul2,
+        #     "val_acc/head1_all_wo_clutering": acc_head1_all_wo_cluster,
+        #     "val_acc/head1_all_w_clutering": acc_head1_all_w_cluster,
+        # }, step=epoch)
 
 def Generate_Center(model, labeled_train_loader, args):
     all_feat = []
@@ -752,12 +752,12 @@ if __name__ == "__main__":
     print(args)
 
     # WandB setting
-    if args.mode == 'train':
-        wandb_run_name = args.model_name + '_fixl1_s_' + str(args.seed)
-        wandb.init(project='incd_dev_miu',
-                   entity=args.wandb_entity,
-                   name=wandb_run_name,
-                   mode=args.wandb_mode)
+    # if args.mode == 'train':
+    #     wandb_run_name = args.model_name + '_fixl1_s_' + str(args.seed)
+    #     wandb.init(project='incd_dev_miu',
+    #                entity=args.wandb_entity,
+    #                name=wandb_run_name,
+    #                mode=args.wandb_mode)
 
     if args.mode == 'train' and args.step == 'first':
         num_classes = args.num_labeled_classes + args.num_unlabeled_classes1
